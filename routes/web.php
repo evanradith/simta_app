@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DetailService;
-use App\Http\Controllers\JadwalService;
-//use App\Http\Controllers\AppController;
+use App\Http\Controllers\DataService;
+use App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +16,15 @@ use App\Http\Controllers\JadwalService;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
-});
-
-Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
 //Route::get('/proposal', function () {
 //    return view('proposal');
 //});
-Route::get('/detail-ta',[DetailService::class, 'getAll']);
-Route::get('/detail-ta/{id}',[DetailService::class, 'getDetail']);
-Route::get('/jadwal-sidang', [JadwalService::class, 'getAll']);
-Route::get('/jadwal-sidang/{id}',[JadwalService::class, 'getDetail']);
-//Route::get('/ambil', [AppController::class, 'nyoba']);
+
+Route::get('/app-detail-ta', [AppController::class, 'detail']);
+Route::get('/app-penjadwalan/{id}', [AppController::class, 'detail_by_id']);
+Route::get('/app-penjadwalan/update', [AppController::class, 'update_jadwal']);
+
+//Route::get('/detail-ta', [DataService::class, 'getAll']);

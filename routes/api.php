@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Route::get('/detail-ta',[DataService::class, 'getDetail']);
+//Route::get('/detail-ta/{id}',[DataService::class, 'getDetailById']);
+//Route::get('/jadwal-sidang', [DataService::class, 'getJadwal']);
+//Route::get('/jadwal-sidang/{id}',[DataService::class, 'getJadwalById']);
+Route::get('/join', [DataService::class, 'join_data']);
+Route::get('/join/{id}', [DataService::class, 'join_data_by_id']);
+
+
