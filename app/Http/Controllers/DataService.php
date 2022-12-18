@@ -26,6 +26,24 @@ class DataService extends Controller
         return response()->json($joined);
     }
 
+    public function update_jadwal()
+    {
+        $jadwal_sidang = $this->request->input('jadwal_sidang');
+
+        try {
+            DB::table('jadwal_sidang')
+                ->insert([
+                    'jadwal_sidang' => $jadwal_sidang,
+                ]);
+            $id = DB::getPdo()->lastInsertId();
+
+            return redirect('/app-detail-ta');
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+
 
 //        }
 ////        $jadwal = DB::table('jadwal_sidang')
@@ -65,5 +83,7 @@ class DataService extends Controller
 //    }
 
 
-
+        }
+    }
 }
+

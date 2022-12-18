@@ -25,6 +25,6 @@ Route::get('/', function () {
 
 Route::get('/app-detail-ta', [AppController::class, 'detail']);
 Route::get('/app-penjadwalan/{id}', [AppController::class, 'detail_by_id']);
-Route::get('/app-penjadwalan/update', [AppController::class, 'update_jadwal']);
+Route::get('/app-penjadwalan/update', [DataService::class, 'update_jadwal']);
 
 //Route::get('/detail-ta', [DataService::class, 'getAll']);
